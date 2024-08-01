@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Page</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      background-image:linear-gradient(rgb(202, 223, 202),rgb(196, 214, 220),white,  rgb(196, 214, 220));
+      position: relative;
+    }
+
+    .signup-container {
+      width: 350px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(239, 238, 238, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+
+    .signup-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: rgb(11, 11, 11);
+    }
+
+    .signup-container input, .signup-container select, .signup-container label {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.5);
+      color: #4a4949;
+      font-size: 16px;
+    }
+
+    .signup-container input::placeholder, .signup-container select::placeholder {
+      color: #666;
+    }
+
+    .signup-container button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #273fad;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .signup-container button:hover {
+      background-color: #218838;
+    }
+
+    .signup-container .link {
+      text-align: center;
+      margin-top: 10px;
+      color: white;
+    }
+
+    .signup-container .link a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    .signup-container .link a:hover {
+      text-decoration: underline;
+    }
+
+    /* Custom style for file input with placeholder-like label */
+    .file-label {
+      display: block;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .file-label input[type="file"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .file-label span {
+      display: block;
+      padding: 10px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.5);
+      color: #666;
+      text-align: center;
+      line-height: 24px;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 2500%;
+      height: 40%;
+      z-index: 0;
+      overflow: hidden;
+    }
+    
+    .footer-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensure the image covers the area without distortion */
+    }
+  </style>
+</head>
+<body>
+  <!-- Signup Form -->
+  <div class="signup-container">
+    <h2>Sign Up</h2>
+    <form>
+      <input type="text" placeholder="Username" required>
+      <input type="email" placeholder="Email" required>
+      <input type="text" placeholder="Address" required>
+      <select required>
+        <option value="" disabled selected>Select Blood Group</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+      </select>
+      <label class="file-label">
+        <span>Upload Government ID Proof</span>
+        <input type="file" id="fileinput" required>
+      </label>
+      <input type="password" placeholder="Password" required>
+      <input type="password" placeholder="Confirm Password" required>
+      <button type="submit">Sign Up</button>
+      <div class="link">
+        <a href="login.html">Already have an account? Login</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Footer Image -->
+  <footer>
+    <img src="pinetree.png" class="footer-img"><img src="pinetree.png" class="footer-img"><img src="pinetree.png" class="footer-img"> 
+</body>
+</html>
