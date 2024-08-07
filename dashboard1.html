@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        
+    }
+    .container{
+        display: grid;
+        grid-template-columns: 1.2fr 3fr 1.4fr;
+            gap: 20px; 
+            height: 100vh;
+            padding: 20px;
+    }
+    #sidePanel{
+        background-color:#f1f1f1;
+        border-radius:10px;
+    }
+    #mainarea{
+        background-color:#f1f1f1;
+        border-radius:10px;
+    }
+    #secondary{
+        background-color:#f1f1f1;
+        border-radius:10px;
+    }
+    #wallet{
+        margin-bottom:5%;
+        margin-left: 10%;
+        margin-right: 10%;
+        border-radius:10px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        height: max-content;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    }
+    #trips{
+       
+        height:40%;
+        margin-left: 10%;
+        margin-right: 10%;
+        border-radius:10px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        height: max-content;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        align-items: center;
+    }
+    #mainarea h1{
+        font-size: 2rem;
+        margin-left: 10%;
+        margin-right: 10%;
+        
+        
+    }
+    ul{
+        list-style: none;
+        margin: 0%;
+        padding: 0%;
+    }
+    #logo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:10px;
+        margin-top: 10%;
+    }
+    #logo h1{
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 20%;
+    
+    }
+    #components{
+            display:flex;
+            flex-direction:column;
+            gap: 10px;   
+            margin-left: 10%; 
+            margin-right: 10%; 
+
+    }
+    #components button{
+        padding: 10px;
+        margin-left: 5%; 
+        margin-right: 5%;
+        background-color: #ffffff;
+        border-radius: 5px;
+        text-align: center;
+
+    }
+    #components button:hover{
+        background-color: #6c757d;
+    }
+    #profile{
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-top: 10%;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+
+
+    }
+    #profile img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+    #profile h2{
+        margin-bottom: 0%;
+    }
+    
+</style>
+
+<body>
+    <div class="container">
+        <div id="sidePanel">
+            <div id="logo">
+                <img src="https://via.placeholder.com/50" alt="logo">
+                <h1>Urban Connect</h1>
+            </div>
+            <div id="components">
+            
+                    <button>Dashboard</button>
+                    <button>Profile</button>
+                    <button>Bookings</button>
+                    <button>Wallet</button>
+                    <button>Support</button>
+                
+            </div>
+        </div>
+        <div id="mainarea">
+            <h1>Good Morning, Vikas Dubey</h1>
+            <div id="wallet" class="card">
+                <h2  >Wallet</h2>
+                <div class="balance">₹500</div>
+                <h3>Recent Transactions</h3>
+                <ul class="b_history">
+                    <li>Booking #1234 - ₹50</li>
+                    <li>Booking #1233 - ₹30</li>
+                </ul>
+            </div>
+            <div id="trips">
+                <h2 align="center">Past Trips</h2>
+                <ul class="t_history">
+                    <li>Trip to Mohali - 24th July</li>
+                    <li>Trip to Panchkula - 23rd July</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div id="secondary">
+            <div id="profile">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/002/002/403/small/man-with-beard-avatar-character-isolated-icon-free-vector.jpg" alt="Profile Picture">
+                <h2>Vikas Dubey</h2>
+                <p>vikas.dubey@example.com</p>
+            </div>
+        </div>
+            
+    </div>
+</body>
+</html>
