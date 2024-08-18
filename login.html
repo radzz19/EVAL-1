@@ -1,128 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
-  <style>
-    /* Include the updated CSS here */
-    body, html {
-        height: 100%;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: Arial, sans-serif;
-        background-size: cover;
-        position: relative;
-        background-image:linear-gradient(rgb(202, 223, 202),rgb(196, 214, 220),white,  rgb(196, 214, 220));
-      }
-      
-      .login-container, .signup-container {
-        width: 350px;
-        padding: 40px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        position: relative;
-        z-index: 1;
-      }
-      
-      .login-container h2, .signup-container h2 {
-        text-align: center;
-        margin-bottom: 20px;
-        color: rgb(17, 16, 16);
-      }
-      
-      .login-container input, .signup-container input, .login-container select, .signup-container select, .login-container label, .signup-container label {
-        width: 100%;
-        padding: 10px;
-        margin: 10px 0;
-        border: none;
-        border-radius: 5px;
-        background: rgba(255, 255, 255, 0.5);
-        color: #333;
-        font-size: 16px;
-      }
-      
-      .login-container input::placeholder, .signup-container input::placeholder, .login-container select::placeholder, .signup-container select::placeholder {
-        color: #666;
-      }
-      
-      .login-container button, .signup-container button {
-        width: 100%;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        background-color: #142a7a;
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-      
-      .login-container button:hover, .signup-container button:hover {
-        background-color: #218838;
-      }
-      
-      .login-container .link, .signup-container .link {
-        text-align: center;
-        margin-top: 10px;
-        color: white;
-      }
-      
-      .login-container .link a, .signup-container .link a {
-        color: #007BFF;
-        text-decoration: none;
-      }
-      
-      .login-container .link a:hover, .signup-container .link a:hover {
-        text-decoration: underline;
-      }
-      
-      /* Footer Image */
-      footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 2500%;
-        height: 40%;
-        z-index: 0;
-        overflow: hidden;
-      }
-      
-      .footer-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Ensure the image covers the area without distortion */
-      }
-      
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Kalnia+Glaze:wght@100..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+        body {
+            margin: 0;
+            font-family: "Jost", sans-serif;
+            background-color:  rgba(197, 225, 225, 0.5);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .login-signup-container{
+            display: flex;
+            background-color: #fff;
+            border-radius: 40px ;
+            box-shadow: 0px 40px 30px rgba(106, 118, 197, 0.3);
+            border: 0.5px solid rgba(145, 208, 225, 0.5) ;
+            overflow: hidden;
+            width: 90%;
+            max-width: 1100px;
+        }
+        
+        .form-container {
+            padding: 60px;
+            flex: 1;
+            background-color: #ffffff;
+        }
+
+        
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #000000;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #353535;
+        }
+        
+        .input-group input {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #d7d4d4;
+        }
+        
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+
+        }
+        
+        .options a {
+            color: #4d4f4d;
+            text-decoration: none;
+            margin-right: 20%;
+        }
+        
+        .options a:hover {
+            text-decoration: underline;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .login-btn {
+            padding: 10px;
+            width: 80%;
+            background-color: #444544;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .login-btn:hover {
+            background-color: #828282;
+        }
+        
+        .google-signin {
+            padding: 10px;
+            width: 80%;
+            background-color: #91bade;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 50%;
+        }
+        
+        .google-signin:hover {
+            background-color: #f9beb3;
+        }
+        
+        .signup-text {
+            margin-top: 20px;
+            text-align: right; 
+            margin-right: 30%;
+        }
+        
+        .signup-text a {
+            color: #2f2f2f;
+            text-decoration: none;
+        }
+        
+        .signup-text a:hover {
+            text-decoration: underline;
+        }
+        
+        .info-container {
+            flex: 1;
+            position: relative;
+            background-color: #e0ece4;
+            overflow: hidden;
+        }
+        
+        .image-slider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+        
+        .image-slider img {
+            width: 90%;
+            height: 60%;
+            border-radius: 0 20px 20px 0;
+        }
+        
+        .testimonial {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(121, 181, 181, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+            color: #100f0f;
+            font-style: italic;
+        }
+        
+        .testimonial p {
+            margin: 0;
+          
+        }
+        
+        .testimonial cite {
+            display: block;
+            margin-top: 10px;
+            text-align: right;
+            font-style: normal;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+    </style>
 </head>
 <body>
-  <!-- For Login Page -->
-  <div class="login-container">
-    <h2>Login</h2>
-    <form>
-      <input type="text" placeholder="Username" required>
-      <input type="password" placeholder="Password" required>
-      <button type="submit">Login</button>
-      <div class="link">
-        <a href="#">Forgot Password?</a>
-      </div>
-      <div class="link">
-        <a href="signup.html">Don't have an account? Sign Up</a>
-      </div>
-    </form>
-  </div>
-
-  <!-- Footer Image -->
-  
-    <footer>
-      <img src="pinetree.png" class="footer-img"><img src="pinetree.png" class="footer-img"><img src="pinetree.png" class="footer-img"><img src="pinetree.png" class="footer-img"><img src="pinetree.png" class="footer-img">
-   </footer>
+    <div class="container">
+        <div class="login-signup-container">
+            <div class="form-container">
+                <h2>Let's Login to Your Account</h2>
+                <form action="#" >
+                    <div class="input-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required placeholder="yourname@gmail.com">
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required placeholder="Current Password">
+                    </div>
+                    <div class="options">
+                        <label>
+                            <input type="checkbox" name="remember"> Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+                    <div class="button-group">
+                        <button type="submit" class="login-btn">Login</button>
+                        <button type="button" class="google-signin">Sign In With Google</button>
+                    </div>
+                </form>
+              <p class="signup-text">Don’t have an account yet? <a href="#">Register Here</a></p>
+            </div>
+            <div class="info-container">
+                <div class="image-slider">
+                    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWdrdnlsb29uM2h0cnAwNG4zcnltMHY2YWJibmg4dW1vMjA2emF5biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/j375yFxei6JtEcDA65/giphy.webp" alt="Plant Image">
+                    <div class="testimonial">
+                        <p>“ Make your drive comfortable with ”</p>
+                        <cite>-- urban connect</cite>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
