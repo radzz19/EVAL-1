@@ -10,44 +10,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         /* General Styles */
+
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+            font-family: 'Exo 2', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f9;
+        }
 
-header {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: center;
-    background-color: #f8f9fa; /* Light background for the header */
-    padding: 1rem;
-}
+        header {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-#logo {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    color: rgb(12, 11, 33);
-}
+        #logo {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            color: rgb(12, 11, 33);
+            font-size: 24px;
+            font-weight: bold;
+        }
 
-#components ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    gap: 40px;
-    font-weight: 300;
-    color: rgb(16, 7, 7);
-}
+        #components ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 40px;
+            font-weight: 300;
+            color: rgb(16, 7, 7);
+        }
 
-#components ul li {
-    cursor: pointer;
-}
+        #components ul li {
+            cursor: pointer;
+            font-size: 18px;
+        }
 
-#components ul li:hover {
-    text-decoration: underline white 3px;
-}
+        #components ul li:hover {
+            text-decoration: underline;
+        }
 
 .main {
     display: flex;
@@ -313,20 +320,19 @@ input:checked + label {
 <body>
 
 <header>
-    <div id="logo">
-        <i class="fa-solid fa-bus" style="font-size: 40px;"></i>
-        <h1>Urban Connect</h1>
-    </div>
-    <div id="components">
-        <ul>
-            <li>Dashboard</li>
-            <li>Profile</li>
-            <li>Bookings</li>
-            <li>Wallet</li>
-            <li>Support</li>
-        </ul>
-    </div>
-</header>
+        <div id="logo">
+            <i class="fas fa-bus-alt"></i>
+            Your Website
+        </div>
+        <nav id="components">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Services</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
 
 <section class="main">
     <div class="glass-box" data-aos="fade-up" data-aos-duration="3000">
