@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Connect</title>
+    <!-- <link rel="stylesheet" href="style6.css"> -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #f8f9fa; /* Light background for the header */
+    padding: 1rem;
+}
+
+#logo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: rgb(12, 11, 33);
+}
+
+#components ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 40px;
+    font-weight: 300;
+    color: rgb(16, 7, 7);
+}
+
+#components ul li {
+    cursor: pointer;
+}
+
+#components ul li:hover {
+    text-decoration: underline white 3px;
+}
+
+.main {
+    display: flex;
+    height: 82vh;
+    justify-content: center;
+    align-items: center;
+    background: url('https://media.licdn.com/dms/image/C4D12AQFC2j5yZdw1ZA/article-cover_image-shrink_600_2000/0/1520156267252?e=2147483647&v=beta&t=Rwcr44CFDuEYxdgt_ACtPQO7yWNbiyh2khRKTfGf7EA') no-repeat left;
+    background-size: cover;
+    text-align: left;
+    gap: 20px;
+}
+
+.glass-box {
+    background: rgba(255, 255, 255, 0.009);
+    border-radius: 10px;
+    padding: 10%;
+    max-width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 5%;
+    min-height: fit-content;
+    height: 25vh;
+    margin-bottom: 5%;
+}
+
+.glass-box h1, .glass-box p, .glass-box button {
+    color: #060404;
+    margin: 10px 0;
+}
+
+.glass-box h1 {
+    font-size: 290%;
+    font-weight: 600;
+}
+
+.glass-box button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: transparent;
+    border: 2px solid #e0e4e7;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.glass-box button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e7eff8;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+.glass-box button::after {
+    content: '➔';
+    position: absolute;
+    font-size: 20px;
+    top: 50%;
+    left: 50%;
+    color: rgb(16, 4, 4);
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.glass-box button:hover::before {
+    transform: scaleX(1);
+}
+
+.glass-box button:hover::after {
+    opacity: 1;
+}
+
+.scroll-down {
+    display: flex;
+    justify-content: center;
+    margin-top: -50px;
+    animation: bounce 2s infinite;
+}
+
+.scroll-down svg {
+    fill: #fff;
+    width: 40px;
+    height: 40px;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(20px);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Circle Cards Styles */
+.circle-cards ol {
+    width: min(60rem, 90%);
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    list-style: none;
+    padding: 2rem 0;
+    counter-reset: stepnr;
+}
+
+.circle-cards li {
+    counter-increment: stepnr;
+    width: 18rem;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.circle-cards li:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.circle-cards li::before {
+    content: counter(stepnr);
+    color: var(--accent-color);
+    font-size: 6rem;
+    font-weight: 700;
+    position: absolute;
+    top: -1.5rem;
+    left: -1.5rem;
+    opacity: 0.15;
+}
+
+.circle-cards li .icon {
+    font-size: 4rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.circle-cards li .title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    color: #333;
+}
+
+.circle-cards li .descr {
+    font-size: 1.1rem;
+    font-weight: 300;
+    text-align: center;
+    color: #555;
+    max-width: 14rem;
+}
+.why-us-section {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+}
+
+.why-us-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+}
+
+.why-us-card {
+    flex: 1;
+    max-width: 300px;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    text-align: center;
+    background-color: white;
+}
+
+.why-us-card i {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.why-us-card h5 {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
+
+.why-us-card p {
+    font-size: 1rem;
+    color: #6c757d;
+}
+.cards {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, rgb(255, 255, 255) 96%, rgba(10, 10, 111, 1) 100%, rgba(43, 84, 232, 1) 100%);
+}
+
+.container {
+    height: 400px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+}
+
+.card {
+    width: 80px;
+    border-radius: 2rem;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 0 10px;
+    transition: 0.6s cubic-bezier(.28, -0.03, 0, .99);
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 2rem;
+}
+
+input {
+    display: none;
+}
+
+input:checked + label {
+    width: 600px;
+}
+
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div id="logo">
+        <i class="fa-solid fa-bus" style="font-size: 40px;"></i>
+        <h1>Urban Connect</h1>
+    </div>
+    <div id="components">
+        <ul>
+            <li>Dashboard</li>
+            <li>Profile</li>
+            <li>Bookings</li>
+            <li>Wallet</li>
+            <li>Support</li>
+        </ul>
+    </div>
+</header>
+
+<section class="main">
+    <div class="glass-box" data-aos="fade-up" data-aos-duration="3000">
+        <h1>Welcome to Urban Connect</h1>
+        <p>Your journey starts here. Let's explore!</p>
+        <button>Let's Start</button>
+    </div>
+</section>
+
+<section class="scroll-down">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12 16.5l6-6-1.41-1.41L12 13.67l-4.59-4.58L6 10.5l6 6z"/>
+    </svg>
+</section>
+
+<section class="circle-cards">
+    <ol>
+        <li data-aos="fade-right">
+            <div class="icon"><i class="fa-solid fa-calendar-check"></i></div>
+            <div class="title">Check Schedule</div>
+            <div class="descr">Easily view available bus schedules for your journey.</div>
+        </li>
+        <li data-aos="fade-left">
+            <div class="icon"><i class="fa-solid fa-ticket-alt"></i></div>
+            <div class="title">Book Tickets</div>
+            <div class="descr">Reserve your seat in just a few clicks.</div>
+        </li>
+        <li data-aos="fade-right">
+            <div class="icon"><i class="fa-solid fa-bus"></i></div>
+            <div class="title">Live Track</div>
+            <div class="descr">Track your bus in real-time with our live tracking feature.</div>
+        </li>
+    </ol>
+</section>
+<section class="why-us-section">
+    <h2 class="text-center mb-5" align="center">Why Choose Us?</h2>
+    <div class="container">
+        
+        
+        <div class="why-us-cards">
+            <div class="why-us-card">
+                <i class="fas fa-bolt"></i>
+                <h5>Fast Booking</h5>
+                <p>Experience a quick and seamless booking process.</p>
+            </div>
+            <div class="why-us-card">
+                <i class="fas fa-lock"></i>
+                <h5>Secure Payment</h5>
+                <p>Your payment details are safe and secure with us.</p>
+            </div>
+            <div class="why-us-card">
+                <i class="fas fa-map-marked-alt"></i>
+                <h5>Real-Time Tracking</h5>
+                <p>Track your bus in real-time and stay informed.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Card Slider Section -->
+    
+    <section class="cards" id="cards" data-aos="fade-up">
+        <h2 class="text-center mb-5" align="center">Galary</h2>
+        <div class="container">
+            <br>
+            <input type="radio" name="slide" id="c1" checked>
+            <label for="c1" class="card">
+                <img src="./For-buses--under-Centre-s-FAME-II-scheme--the-Chan_1687209390534.avif" alt="Image 3">
+            </label>
+            <input type="radio" name="slide" id="c2">
+            <label for="c2" class="card">
+                <img src="./For-buses--under-Centre-s-FAME-II-scheme--the-Chan_1687209390534.avif" alt="Image 2">
+            </label>
+            <input type="radio" name="slide" id="c3">
+            <label for="c3" class="card">
+                <img src="./For-buses--under-Centre-s-FAME-II-scheme--the-Chan_1687209390534.avif" alt="Image 3">
+            </label>
+            <!-- Additional cards can be added here -->
+        </div>
+    </section>
+
+
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+</body>
+</html>
